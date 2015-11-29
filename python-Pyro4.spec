@@ -10,7 +10,7 @@ Source0:	http://pypi.python.org/packages/source/P/%{module}/%{module}-%{version}
 # Source0-md5:	ad096f8e2d58ecac402a58eb6d10531a
 URL:		http://packages.python.org/Pyro4/
 BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.219
+BuildRequires:	rpmbuild(macros) >= 1.710
 Requires:	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
