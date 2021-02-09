@@ -74,6 +74,17 @@ Jest zaawasowanym i poteżnym systemem zarządania zdalnymi obiektami,
 napisanym całkowice w Pythonie. Jest zaprojektowany jako bardzo łatwy
 w użyciu.
 
+%package apidocs
+Summary:	API documentation for Python Pyro4 module
+Summary(pl.UTF-8):	Dokumentacja API modułu Pythona Pyro4
+Group:		Documentation
+
+%description apidocs
+API documentation for Python Pyro4 module.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API modułu Pythona Pyro4.
+
 %prep
 %setup -q -n %{module}-%{version}
 
@@ -158,4 +169,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pyro4-test-echoserver-3
 %{py3_sitescriptdir}/%{module}
 %{py3_sitescriptdir}/%{module}-%{version}-py*.egg-info
+%endif
+
+%if %{with doc}
+%files apidocs
+%defattr(644,root,root,755)
+%doc build/sphinx/html/{_images,_static,api,*.html,*.js}
 %endif
