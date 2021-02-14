@@ -24,6 +24,7 @@ BuildRequires:	python-modules >= 1:2.7
 %if %{with tests}
 BuildRequires:	python-cloudpickle
 BuildRequires:	python-dill
+BuildRequires:	python-msgpack
 BuildRequires:	python-selectors2
 BuildRequires:	python-serpent >= 1.27
 %endif
@@ -33,6 +34,7 @@ BuildRequires:	python3-modules >= 1:3.5
 %if %{with tests}
 BuildRequires:	python3-cloudpickle
 BuildRequires:	python3-dill
+BuildRequires:	python3-msgpack
 BuildRequires:	python3-serpent >= 1.27
 %endif
 %endif
