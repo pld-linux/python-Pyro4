@@ -1,10 +1,11 @@
 # NOTE: tests spawn >128 processes (ulimit -u 256 is enough)
 #
 # Conditional build:
-%bcond_without	doc	# Sphinx documentation
-%bcond_without	tests	# unit tests
-%bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_without	doc		# Sphinx documentation
+%bcond_without	tests		# unit tests
+%bcond_with	tests_net	# unit tests requiring network access
+%bcond_without	python2		# CPython 2.x module
+%bcond_without	python3		# CPython 3.x module
 
 %define 	module	Pyro4
 Summary:	Distributed object middleware for Python (RPC)
@@ -90,6 +91,10 @@ Dokumentacja API modułu Pythona Pyro4.
 
 # selectors2 is preferred over selectors34, update egg dependency accordingly
 %{__sed} -i -e 's/selectors34/selectors2/' setup.py
+
+%if %{without tests_net}
+%{__rm} tests/PyroTests/test_{naming,naming2,socket}.py
+%endif
 
 %build
 %if %{with python2}
