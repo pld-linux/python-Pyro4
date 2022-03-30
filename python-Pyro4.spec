@@ -12,7 +12,7 @@ Summary:	Distributed object middleware for Python (RPC)
 Summary(pl.UTF-8):	Oprogramowanie umożliwiające dystrybucję obiektów w Pythonie (RPC)
 Name:		python-%{module}
 Version:	4.80
-Release:	4
+Release:	5
 License:	MIT
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/Pyro4/
