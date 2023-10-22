@@ -11,20 +11,20 @@
 Summary:	Distributed object middleware for Python (RPC)
 Summary(pl.UTF-8):	Oprogramowanie umożliwiające dystrybucję obiektów w Pythonie (RPC)
 Name:		python-%{module}
-Version:	4.80
-Release:	5
+Version:	4.82
+Release:	1
 License:	MIT
 Group:		Development/Languages/Python
 #Source0Download: https://pypi.org/simple/Pyro4/
 Source0:	https://files.pythonhosted.org/packages/source/P/Pyro4/%{module}-%{version}.tar.gz
-# Source0-md5:	e31fc077e06de9fc0bb061e357401954
+# Source0-md5:	045373da52fc2bd560004db42cd7fc2f
 URL:		https://pypi.org/project/Pyro4/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 %if %{with tests}
-BuildRequires:	python-cloudpickle
-BuildRequires:	python-dill
-BuildRequires:	python-msgpack
+BuildRequires:	python-cloudpickle >= 0.4.0
+BuildRequires:	python-dill >= 0.2.6
+BuildRequires:	python-msgpack >= 0.5.2
 BuildRequires:	python-selectors2
 BuildRequires:	python-serpent >= 1.27
 %endif
@@ -32,9 +32,9 @@ BuildRequires:	python-serpent >= 1.27
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.5
 %if %{with tests}
-BuildRequires:	python3-cloudpickle
-BuildRequires:	python3-dill
-BuildRequires:	python3-msgpack
+BuildRequires:	python3-cloudpickle >= 0.4.0
+BuildRequires:	python3-dill >= 0.2.6
+BuildRequires:	python3-msgpack >= 0.5.2
 BuildRequires:	python3-serpent >= 1.27
 %endif
 %endif
@@ -95,7 +95,7 @@ Dokumentacja API modułu Pythona Pyro4.
 %{__sed} -i -e 's/selectors34/selectors2/' setup.py
 
 %if %{without tests_net}
-%{__rm} tests/PyroTests/test_{naming,naming2,socket}.py
+%{__rm} tests/PyroTests/test_{naming,naming2,serialize,socket}.py
 %endif
 
 %build
